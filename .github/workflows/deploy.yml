@@ -19,4 +19,6 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-              cd /home/test_github_actions/actions-test && docker-compose up
+              cd /home/test_github_actions/actions-test
+              docker-compose up
+              echo end
