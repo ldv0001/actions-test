@@ -20,9 +20,10 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
               cd /home/test_github_actions/actions-test
-              touch testfile1
+              git pull
               ./mvnw package
-              touch testfile2
+              docker-compose build
+             
     - name: Build the Docker image
       uses: appleboy/ssh-action@v1.0.3
       with:
