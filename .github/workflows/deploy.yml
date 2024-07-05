@@ -20,5 +20,4 @@ jobs:
         port: ${{ secrets.PORT }}
         script: |
               cd /home/test_github_actions/actions-test
-              docker-compose up
-              echo end
+        run: docker-compose up 
