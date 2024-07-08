@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MainController {
     @GetMapping("/")
     public ResponseEntity<String>getResponse(){
-        return new ResponseEntity<>("Test response on port 9099 v4", HttpStatus.OK);
+        return new ResponseEntity<>("Test response on port 9099 v5", HttpStatus.OK);
     }
 
 }
