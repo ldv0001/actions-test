@@ -22,16 +22,7 @@ jobs:
               cd /home/test_github_actions/actions-test
               git pull
               ./mvnw package
-              docker-compose build
-             
-    - name: Build the Docker image
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
-        script: |
+              docker-compose build   
               cd /home/test_github_actions/actions-test
               docker-compose up -d         
   
