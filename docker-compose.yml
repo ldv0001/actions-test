@@ -1,6 +1,6 @@
 version: '3.19'
 services:
-  backend:
+  backend-release:
     build:
       context: .
       dockerfile: Dockerfile
