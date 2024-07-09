@@ -1,0 +1,26 @@
+name: Docker Release CI
+
+on:
+  push:
+    branches: [ "release" ]
+  pull_request:
+    branches: [ "release" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+    - name: deploy release
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+              cd /home/action_test/release/actions-test
+              git pull
+              ./mvnw package
+              docker-compose build    
+              docker-compose up -d         
