@@ -19,10 +19,9 @@ jobs:
         password: ${{ secrets.PASSWORD }}
         port: ${{ secrets.PORT }}
         script: |
-              cd /home/test_github_actions/actions-test
+              cd /home/action_test/dev/actions-test
               git pull
               ./mvnw package
-              docker-compose build   
-              cd /home/test_github_actions/actions-test
+              docker-compose build          
               docker-compose up -d         
   
