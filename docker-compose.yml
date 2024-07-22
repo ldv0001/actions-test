@@ -1,3 +1,53 @@
+version: '3.9'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - ./db-data:/data/db
+    environment:
+      POSTGRES_USER: sfsb
+      POSTGRES_PASSWORD: gFNQkM
+      POSTGRES_DB: sfsb
+      PGDATA: "/data/db"
+    healthcheck:
+      test: pg_isready -d sfsb -U sfsb
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+  pgadmin4:
+    image: elestio/pgadmin:latest
+    restart: always
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json
+      - ./pgpass:/pgpass
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@mail.com
+      PGADMIN_DEFAULT_PASSWORD: gFNQkM
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - "8080:8080"
+  sfsb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    restart: always
+    ports:
+      - "9000:9000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+
+
+
+
+
 version: '3.19'
 services:
   backend-release:
