@@ -34,10 +34,10 @@ services:
       - "8080:8080"
   sfsb:
     build:
-      context: .
+      context: ..
       dockerfile: Dockerfile
     env_file:
-      - env/.env
+      - ../env/.env
     restart: always
     ports:
       - "9000:9000"
