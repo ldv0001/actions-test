@@ -8,7 +8,7 @@ public class GitActionsTestApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(GitActionsTestApplication.class, args);
-		System.out.println("started on port 9090  ");
+		System.out.println("started on port 9090   ");
 	}
 
 }
