@@ -34,7 +34,7 @@ services:
       - "8080:8080"
   sfsb:
     build:
-      context: ..
+      context: .
       dockerfile: Dockerfile
     env_file:
       - .env
