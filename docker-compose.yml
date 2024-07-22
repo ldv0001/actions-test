@@ -43,16 +43,3 @@ services:
       db:
         condition: service_healthy
 
-
-
-
-
-
-version: '3.19'
-services:
-  backend-release:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "9090:9090"
