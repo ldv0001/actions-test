@@ -22,6 +22,6 @@ jobs:
               cd /home/action_test/release/actions-test/
               git pull
               ./mvnw package
-              cd /home/action_test/release/actions-test/docker-test
+              cd /home/action_test/release/actions-test/docker-test/
               docker-compose build    
               docker-compose up -d         
